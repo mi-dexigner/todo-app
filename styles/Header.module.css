@@ -1,0 +1,17 @@
+.Header{
+    background-color: aliceblue;
+    padding: 1rem .5rem;
+}
+.Header nav{
+    display: flex;
+    justify-content: flex-end;
+}
+.Header nav ul{
+    display: flex;
+    list-style: none;
+}
+.Header nav ul li a{
+    padding: 0 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
