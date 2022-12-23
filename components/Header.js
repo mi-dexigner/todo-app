@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 import React, { useContext } from 'react'
 import styles from '../styles/Header.module.css'
 import { Montserrat } from '@next/font/google';
@@ -6,7 +6,7 @@ import AuthContext from '../stores/authContext';
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 const Header = () => {
-  const {user,login} = useContext(AuthContext);
+  const {user,login,register,logout} = useContext(AuthContext);
   console.log(user);
   return (
     <header className={`${styles.Header} ${montserrat.className}`}>
@@ -18,8 +18,9 @@ const Header = () => {
                     <ul>
                       <li><Link href="/">Home</Link></li>
                       <li><Link href="">Dashboard</Link></li>
-                      <li><a onClick={login}>Login</a></li>
-                      <li><Link href="">Register</Link></li>
+                      <li  onClick={register} className={styles.btn}>Register</li>
+                      <li onClick={login} className={styles.btn}>Login</li>
+                      <li onClick={logout} className={styles.btn}>Logout</li>
                     </ul>
                   </nav>
                 </div>

@@ -10,8 +10,23 @@
     display: flex;
     list-style: none;
 }
+.Header nav ul li {
+    align-items: center;
+    display: flex;
+}
 .Header nav ul li a{
     padding: 0 1rem;
     font-size: 1rem;
     font-weight: 500;
 }
+
+.btn {
+    padding: 5px 8px;
+    font-weight: 600;
+    color: #404040;
+    cursor: pointer;
+  }
+.btn:hover {
+    color: white;
+    background: blueviolet;
+  }
