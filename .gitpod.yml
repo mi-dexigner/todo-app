@@ -3,7 +3,14 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
-  - init: npm install && npm run build
-    command: npm run start
+  - init:  npm run build
+    command: npm run dev
+
+# Ports to expose on workspace startup
+ports:
+  - port: 3000
+    onOpen: open-preview
+    name: todoApp
+    description: Website Preview
 
 
