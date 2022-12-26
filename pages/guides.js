@@ -6,30 +6,31 @@ export default function Guides() {
 const { user, authReady,login } = useContext(AuthContext)
 const [guides, setGuides] = useState(null)
 const [error, setError] = useState(null)
-    useEffect(() => {
-      if (authReady) {
-        fetch('/.netlify/functions/guides', user && {
-          headers: {
-            Authorization:  'Bearer ' + user.token.access_token
-          }
-        })
-        .then(res => {
-            if (!res.ok) {
-                login()
-                throw Error('You must be logged in to view this content')
-              }
-            res.json()
-        }).then(data => {
-            setError(null)
-            setGuides(data)
-          })
-          .catch(err => {
-            setError(err.message)
-            setGuides(null)
-          })
-      }
-  
-    },[user, authReady])
+useEffect(() => {
+    // if (authReady) {
+      fetch('/.netlify/functions/guides', user && {
+        headers: {
+          Authorization:  'Bearer ' + user.token.access_token
+        }
+      })
+      .then(res => {
+        if (!res.ok) {
+          login()
+          throw Error('You must be logged in to view this content')
+        }
+        return res.json()
+      })
+      .then(data => {
+        setError(null)
+        setGuides(data)
+      })
+      .catch(err => {
+        setError(err.message)
+        setGuides(null)
+      })
+    // }
+
+  },[user, authReady])
 
   return (
     <Layout>
