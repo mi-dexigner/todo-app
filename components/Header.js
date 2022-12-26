@@ -7,13 +7,13 @@ import AuthContext from '../stores/authContext';
 const montserrat = Montserrat({ subsets: ['latin'] })
 const Header = () => {
   const {user,login,register,logout } = useContext(AuthContext);
-  console.log(user);
   return (
     <header className={`${styles.Header} ${montserrat.className}`}>
         <div className='container'>
             <div className='row'>
                 <div className='col-2'>TodoApp</div>
                 <div className='col-9'>
+                  {/* {authReady &&( */}
                   <nav>
                     <ul>
                       <li><Link href="/">Home</Link></li>
@@ -23,6 +23,7 @@ const Header = () => {
                       {user  &&<li onClick={logout} className={styles.btn}>Logout</li>}
                     </ul>
                   </nav>
+                  {/* )} */}
                 </div>
             </div>
         </div>
